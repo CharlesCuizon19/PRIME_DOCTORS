@@ -42,7 +42,7 @@
                     class="max-w-2xl mx-auto font-sans bg-white ">
                     <!-- Job Position -->
                     <div class="mb-6">
-                        <p class="font-semibold text-[#002984] text-sm mb-2">Job Position</p>
+                        <p class="font-semibold text-[#002984] text-lg mb-2">Job Position</p>
                         <div class="p-3 border border-[#a5c4ff] bg-[#e8f0ff] text-[#002984] rounded-full">
                             {{ $career_name }}
                         </div>
@@ -50,7 +50,7 @@
 
                     <!-- General Information -->
                     <div class="mb-6">
-                        <p class="font-semibold text-[#002984] text-sm mb-3">General Information</p>
+                        <p class="font-semibold text-[#002984] text-lg mb-3">General Information</p>
                         <div class="grid grid-cols-1 gap-3 mb-3 sm:grid-cols-2">
                             <input type="text" name="first_name" placeholder="First Name" required
                                 class="border border-gray-300 rounded-full px-4 py-2 w-full focus:outline-none focus:ring-1 focus:ring-[#002984]">
@@ -67,16 +67,16 @@
 
                     <!-- Upload Resume -->
                     <div class="mb-6">
-                        <p class="font-semibold text-[#002984] text-sm mb-3">Upload Resume/CV</p>
+                        <p class="font-semibold text-[#002984] text-lg mb-3">Upload Resume/CV</p>
                         <div
                             class="flex flex-col items-center justify-center py-8 text-center border-2 border-gray-300 border-dashed rounded-xl">
                             <div class="text-4xl mb-2 text-[#002984]">📄</div>
-                            <p class="mb-3 text-sm text-gray-500">Click button below or drag file to upload (max
+                            <p class="mb-3 text-lg text-gray-500">Click button below or drag file to upload (max
                                 2MB)
                             </p>
 
                             <label
-                                class="bg-[#002984] hover:bg-[#0046ff] text-white px-4 py-2 rounded-md text-sm cursor-pointer flex items-center gap-2">
+                                class="bg-[#002984] hover:bg-[#0046ff] text-white px-4 py-2 rounded-md text-lg cursor-pointer flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -92,7 +92,7 @@
                     <div class="mb-8">
                         <div class="flex items-center gap-3 p-3 border rounded-md w-fit">
                             <input type="checkbox" id="captcha" required class="w-5 h-5">
-                            <label for="captcha" class="text-sm text-gray-600">I'm not a robot</label>
+                            <label for="captcha" class="text-lg text-gray-600">I'm not a robot</label>
                         </div>
                     </div>
 

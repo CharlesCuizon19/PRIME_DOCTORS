@@ -4,7 +4,8 @@
 
 @section('content')
     <div class="relative flex flex-col overflow-x-hidden">
-        <x-banner title1="About" title2="Us" img_path='assets/about-us-banner.png' page="About Us" breadcrumb="" />
+        <x-banner title1="Company" title2="Profile" img_path='assets/about-us-banner.png' page="Company Profile"
+            breadcrumb="" />
 
         <div>
             <div class="container grid grid-cols-1 gap-20 px-6 py-24 mx-auto border-b-2 lg:grid-cols-2">
@@ -29,7 +30,7 @@
                 <!-- Right Side (Text + Stats) -->
                 <div class="flex flex-col justify-between mt-10">
                     <div data-aos="zoom-in" data-aos-duration="1000">
-                        <span class="px-4 py-1 text-sm font-semibold bg-gray-100 rounded-full text-[#0035c6]">Who We
+                        <span class="px-4 py-1 text-lg font-semibold bg-gray-100 rounded-full text-[#0035c6]">Who We
                             Are</span>
                         <h2 class="mt-4 text-2xl font-bold lg:text-3xl">
                             Trusted healthcare services for more than two decades
@@ -48,7 +49,7 @@
                                 <h3 class=" count" data-target="20" data-suffix="+"></h3>
                                 <span class="font-bold">Years</span>
                             </div>
-                            <p class="text-sm text-gray-600">A proud legacy of delivering trusted and compassionate
+                            <p class="text-lg text-gray-600">A proud legacy of delivering trusted and compassionate
                                 healthcare to our community.</p>
                         </div>
                         <div class="flex flex-col space-y-3" data-aos="zoom-in" data-aos-duration="1000">
@@ -57,7 +58,7 @@
                                 <h3 class=" count" data-target="10000" data-suffix="+"></h3>
                                 <span class="font-bold">Patients</span>
                             </div>
-                            <p class="text-sm text-gray-600">Improving lives through personalized treatment and dedicated
+                            <p class="text-lg text-gray-600">Improving lives through personalized treatment and dedicated
                                 medical attention.</p>
                         </div>
                         <div class="flex flex-col space-y-3" data-aos="zoom-in" data-aos-duration="1000">
@@ -66,7 +67,7 @@
                                 <h3 class=" count" data-target="95" data-suffix="%"></h3>
                                 <span class="font-bold">Satisfaction</span>
                             </div>
-                            <p class="text-sm text-gray-600">Consistently earning high ratings for quality care and positive
+                            <p class="text-lg text-gray-600">Consistently earning high ratings for quality care and positive
                                 health outcomes.</p>
                         </div>
                         <div class="flex flex-col space-y-3" data-aos="zoom-in" data-aos-duration="1000">
@@ -75,16 +76,16 @@
                                 <h3 class=" count" data-target="50" data-suffix="+"></h3>
                                 <span class="font-bold">Specialists</span>
                             </div>
-                            <p class="text-sm text-gray-600">Offering a wide range of expertise to address diverse
+                            <p class="text-lg text-gray-600">Offering a wide range of expertise to address diverse
                                 healthcare needs.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="container relative grid grid-cols-1 gap-24 px-6 pt-24 pb-64 mx-auto">
+            <div class="container relative grid grid-cols-1 gap-24 px-6 py-24 mx-auto">
                 <div class="flex items-center justify-center">
-                    <span class="px-4 py-1 text-sm font-semibold bg-gray-100 rounded-full text-[#0035c6]" data-aos="zoom-in"
+                    <span class="px-4 py-1 text-lg font-semibold bg-gray-100 rounded-full text-[#0035c6]" data-aos="zoom-in"
                         data-aos-duration="1000">
                         Our History
                     </span>
@@ -161,12 +162,7 @@
                         </div>
                     </div>
 
-                </div>
-            </div>
-
-            <div class="relative pb-20 bg-gray-100">
-                <div class="container grid items-center justify-center grid-cols-1 mx-auto">
-                    <div class="absolute  justify-center items-center -top-[15%]">
+                    <div class="items-center justify-center ">
                         <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:ml-14">
                             <div class="relative" data-aos="zoom-in" data-aos-duration="1000">
                                 <img src="{{ asset('assets/mission.png') }}" alt="" class="rounded-2xl">
@@ -197,9 +193,93 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col gap-20 pt-64 ">
+                    <div class="grid grid-cols-2 gap-10 pt-20 bg-white">
+                        <div class="flex flex-col gap-5">
+                            <span
+                                class="px-4 py-1 text-lg font-semibold bg-gray-100 rounded-full text-[#0035c6] w-fit">What
+                                We
+                                Stand For</span>
+                            <span class="text-2xl font-semibold text-black">
+                                Core Values That Define Us
+                            </span>
+                            <span class="text-lg text-black/80">
+                                These principles reflect our unwavering commitment to excellence, compassion, and integrity
+                                in healthcare.
+                            </span>
+                            <div class="grid grid-cols-6 gap-5">
+                                <div class="grid items-center justify-center grid-cols-1 col-span-1">
+                                    <div class="flex items-center justify-center">
+                                        <span class="px-6 py-3 w-fit text-white bg-[#0035c6] rounded-full  text-5xl">
+                                            1
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center justify-center">
+                                        <span class="h-[7rem] w-[5px] bg-[#0035c6] ">
+
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center justify-center">
+                                        <span class="px-6 py-3 w-fit text-white bg-[#0035c6] rounded-full  text-5xl">
+                                            2
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center justify-center">
+                                        <span class="h-[7rem] w-[5px] bg-[#0035c6] ">
+
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center justify-center">
+                                        <span class="px-6 py-3 w-fit text-white bg-[#0035c6] rounded-full  text-5xl">
+                                            3
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col col-span-5 gap-5">
+                                    <div class="flex flex-col gap-2">
+                                        <div class="text-3xl">
+                                            Compassion
+                                        </div>
+                                        <div class="text-[18px] text-black/80">
+                                            We treat every patient with empathy, kindness, and understanding. We believe
+                                            that genuine care and emotional support are just as important as medical
+                                            treatment in the healing process.
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-2">
+                                        <div class="text-3xl">
+                                            Excellence
+                                        </div>
+                                        <div class="text-[18px] text-black/80">
+                                            We uphold the highest standards in medical practice, continuously improving our
+                                            skills, technologies, and services to deliver outstanding healthcare outcomes
+                                            for every patient.
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-2">
+                                        <div class="text-3xl">
+                                            Integrity
+                                        </div>
+                                        <div class="text-[18px] text-black/80">
+                                            Honesty and transparency are at the heart of everything we do. We build trust by
+                                            ensuring our patients are fully informed and confident in the care they receive.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center">
+                            <img src="{{ asset('assets/core-values-img.png') }}" alt="" class="w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pb-20 bg-gray-100">
+                <div class="container grid items-center justify-center grid-cols-1 mx-auto">
+
+                    <div class="flex flex-col gap-20 py-10 ">
                         <div class="flex flex-col items-center justify-center gap-5 mt-10">
-                            <span class="px-4 py-1 text-sm font-semibold bg-white rounded-full text-[#0035c6]"
+                            <span class="px-4 py-1 text-lg font-semibold bg-white rounded-full text-[#0035c6]"
                                 data-aos="zoom-in" data-aos-duration="1000">
                                 Consult Now
                             </span>
@@ -219,7 +299,7 @@
                                     <img src="{{ asset('assets/consultnow-icon1.png') }}" alt="icon"
                                         class="w-auto h-10 text-yellow-500">
                                     <span
-                                        class="absolute flex items-center justify-center w-6 h-6 text-xs font-bold text-white rounded-full shadow bg-[#0035c6] -top-0 -right-0">
+                                        class="absolute flex items-center text-lg justify-center w-8 h-8 font-bold text-white rounded-full shadow bg-[#0035c6] -top-0 -right-0">
                                         1
                                     </span>
                                 </div>
@@ -232,9 +312,9 @@
                                 <div
                                     class="relative flex items-center justify-center bg-white border rounded-full shadow h-28 w-28">
                                     <img src="{{ asset('assets/consultnow-icon2.png') }}" alt="icon"
-                                        class="w-10 h-10 text-yellow-500">
+                                        class="w-auto h-10 text-yellow-500">
                                     <span
-                                        class="absolute flex items-center justify-center w-6 h-6 text-xs font-bold text-white rounded-full shadow bg-[#0035c6] -top-0 -right-0">
+                                        class="absolute flex items-center text-lg justify-center w-8 h-8 font-bold text-white rounded-full shadow bg-[#0035c6] -top-0 -right-0">
                                         2
                                     </span>
                                 </div>
@@ -247,9 +327,9 @@
                                 <div
                                     class="relative flex items-center justify-center bg-white border rounded-full shadow h-28 w-28">
                                     <img src="{{ asset('assets/consultnow-icon3.png') }}" alt="icon"
-                                        class="w-10 h-10 text-yellow-500">
+                                        class="w-auto h-10 text-yellow-500">
                                     <span
-                                        class="absolute flex items-center justify-center w-6 h-6 text-xs font-bold text-white rounded-full shadow bg-[#0035c6] -top-0 -right-0">
+                                        class="absolute flex items-center text-lg justify-center w-8 h-8 font-bold text-white rounded-full shadow bg-[#0035c6] -top-0 -right-0">
                                         3
                                     </span>
                                 </div>
@@ -262,9 +342,9 @@
                                 <div
                                     class="relative flex items-center justify-center bg-white border rounded-full shadow h-28 w-28">
                                     <img src="{{ asset('assets/consultnow-icon4.png') }}" alt="icon"
-                                        class="w-10 h-10 text-yellow-500">
+                                        class="w-auto h-10 text-yellow-500">
                                     <span
-                                        class="absolute flex items-center justify-center w-6 h-6 text-xs font-bold text-white rounded-full shadow bg-[#0035c6] -top-0 -right-0">
+                                        class="absolute flex items-center text-lg justify-center w-8 h-8 font-bold text-white rounded-full shadow bg-[#0035c6] -top-0 -right-0">
                                         4
                                     </span>
                                 </div>

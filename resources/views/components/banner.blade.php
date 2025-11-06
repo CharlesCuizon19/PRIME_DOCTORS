@@ -18,7 +18,7 @@
                 <div
                     class="flex flex-col items-center w-full gap-5 text-5xl font-bold lg:items-start lg:text-left lg:mt-[13rem]">
                     <div class="hidden lg:flex" data-aos="zoom-in" data-aos-duration="1000">
-                        <p class="text-sm text-[#0035c6] lg:text-base">
+                        <p class="text-lg text-[#0035c6] lg:text-base">
                             Home / <span>{{ $page }}</span>
                             <span>
                                 {{ $breadcrumb }}

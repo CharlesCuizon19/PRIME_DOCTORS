@@ -196,7 +196,7 @@
                                 <div class="flex flex-col gap-5 p-5 bg-white shadow">
                                     <iframe class="w-full h-40 border rounded border-[#edb42f]"
                                         src="https://maps.google.com/maps?q=Antipolo&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-                                    <div class="mt-3 space-y-5 text-sm text-gray-700">
+                                    <div class="mt-3 space-y-5 text-lg text-gray-700">
                                         <div class="flex items-center gap-2">
                                             <img src="{{ asset('assets/career-icon6.png') }}" alt="">
                                             <div>
@@ -237,12 +237,12 @@
                                                 <div class="flex flex-col w-full gap-3">
                                                     <div>
                                                         <div class="font-semibold">{{ $item->title }}</div>
-                                                        <p class="text-sm text-gray-500">Posted
+                                                        <p class="text-lg text-gray-500">Posted
                                                             <span>{{ $item->monthsAgo }}</span> months ago
                                                         </p>
                                                     </div>
                                                     <div class="flex justify-between">
-                                                        <div class="flex items-center gap-2 text-sm text-gray-700">
+                                                        <div class="flex items-center gap-2 text-lg text-gray-700">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="17"
                                                                 height="17" viewBox="0 0 20 20">
                                                                 <rect width="20" height="20" fill="none" />

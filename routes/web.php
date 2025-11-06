@@ -30,7 +30,8 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 
 
 // ABOUT US
-Route::get('/home/about-us', [PageController::class, 'about_us'])->name('about-us');
+Route::get('/home/about-us/company-profile', [PageController::class, 'about_us'])->name('about-us');
+Route::get('/home/about-us/board-of-directors', [PageController::class, 'BOD'])->name('BOD');
 
 
 // SERVICES
