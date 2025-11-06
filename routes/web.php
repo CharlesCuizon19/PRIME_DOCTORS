@@ -44,6 +44,8 @@ Route::get('/home/services/{id}', [PageController::class, 'show_service'])->name
 Route::get('/home/careers', [PageController::class, 'careers'])->name('careers');
 Route::get('/home/careers/{id}', [PageController::class, 'show_career'])->name('careers.show');
 
+// CAREER APPLICATION SUBMISSION (frontend)
+Route::post('/career-application', [CareerApplicationController::class, 'store'])->name('career_application.store');
 
 // FIND A DOCTOR
 Route::get('/home/find-a-doctor', [PageController::class, 'find_a_doctor'])->name('find-a-doctor.show');

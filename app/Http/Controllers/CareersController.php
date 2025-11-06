@@ -121,7 +121,7 @@ class CareersController extends Controller
                 $filename = time() . '_' . $file->getClientOriginalName();
                 $file->move(public_path('storage/careers'), $filename);
 
-                $fileRecord = Files::create(['image_path' => 'careers/' . $filename]);
+                $fileRecord = Files::create(['image_path' => 'storage/careers/' . $filename]);
                 $newImage = Images::create([
                     'file_id' => $fileRecord->id,
                     'uploaded_by_id' => auth()->id(),

@@ -27,12 +27,14 @@
 
     {{-- alpine --}}
     <script src="https://unpkg.com/alpinejs@3.14.1/dist/cdn.min.js" defer></script>
+
 </head>
 
 <body>
     @include('partials.header')
     @yield('content')
     @include('partials.footer')
+
 </body>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

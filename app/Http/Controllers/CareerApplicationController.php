@@ -6,6 +6,7 @@ use App\Models\CareerApplication;
 use App\Models\Careers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
 
 class CareerApplicationController extends Controller
 {
@@ -44,18 +45,38 @@ class CareerApplicationController extends Controller
             'applicant_email'       => 'required|email|max:255',
             'applicant_phone'       => 'nullable|string|max:50',
             'resume'                => 'required|file|mimes:pdf,doc,docx|max:5120',
+            'g-recaptcha-response'  => 'required',
         ]);
 
+        // ✅ Verify reCAPTCHA
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret'   => env('RECAPTCHA_SECRET_KEY'),
+            'response' => $request->input('g-recaptcha-response'),
+            'remoteip' => $request->ip(),
+        ]);
+
+        $recaptcha = $response->json();
+        if (!($recaptcha['success'] ?? false)) {
+            Log::warning('reCAPTCHA validation failed', ['recaptcha' => $recaptcha]);
+            return back()->withErrors(['g-recaptcha-response' => 'Please verify that you are not a robot.'])->withInput();
+        }
+
         try {
-            // Upload resume file
+            // ✅ Check if the selected career has available vacancies
+            $career = Careers::findOrFail($request->career_id);
+            if ($career->vacancy <= 0) {
+                return back()->withErrors(['career_id' => 'This position is no longer available.'])->withInput();
+            }
+
+            // ✅ Upload resume file
             $file = $request->file('resume');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('storage/career_applications'), $filename);
             $filePath = 'storage/career_applications/' . $filename;
 
-            // Save record
+            // ✅ Save record to database
             $application = CareerApplication::create([
-                'career_id'             => $request->career_id,
+                'career_id'             => $career->id,
                 'applicant_first_name'  => $request->applicant_first_name,
                 'applicant_last_name'   => $request->applicant_last_name,
                 'applicant_email'       => $request->applicant_email,
@@ -63,12 +84,18 @@ class CareerApplicationController extends Controller
                 'file_path'             => $filePath,
             ]);
 
+            // ✅ Decrease vacancy count
+            $career->decrement('vacancy', 1);
+
             Log::info('Career application created successfully', ['id' => $application->id]);
 
-            return redirect()->route('admin.career_applications.index')
-                ->with('success', 'Application submitted successfully.');
+            return back()->with('success', 'Application submitted successfully.');
         } catch (\Exception $e) {
-            Log::error('Error storing career application', ['message' => $e->getMessage()]);
+            Log::error('Error storing career application', [
+                'message' => $e->getMessage(),
+                'line'    => $e->getLine(),
+            ]);
+
             return back()->with('error', 'Something went wrong while saving.')->withInput();
         }
     }
@@ -99,7 +126,24 @@ class CareerApplicationController extends Controller
         ]);
 
         try {
-            // Update basic applicant data
+            // ✅ If career changed, adjust vacancy counts
+            if ($careerApplication->career_id != $request->career_id) {
+                // Restore old career vacancy (+1)
+                $oldCareer = Careers::find($careerApplication->career_id);
+                if ($oldCareer) {
+                    $oldCareer->increment('vacancy', 1);
+                }
+
+                // Decrease new career vacancy (-1)
+                $newCareer = Careers::find($request->career_id);
+                if ($newCareer && $newCareer->vacancy > 0) {
+                    $newCareer->decrement('vacancy', 1);
+                } else {
+                    return back()->withErrors(['career_id' => 'This position is no longer available.'])->withInput();
+                }
+            }
+
+            // ✅ Update basic applicant data
             $careerApplication->update([
                 'career_id'             => $request->career_id,
                 'applicant_first_name'  => $request->applicant_first_name,
@@ -108,7 +152,7 @@ class CareerApplicationController extends Controller
                 'applicant_phone'       => $request->applicant_phone,
             ]);
 
-            // If new resume file uploaded
+            // ✅ If new resume file uploaded
             if ($request->hasFile('resume')) {
                 $file = $request->file('resume');
                 $filename = time() . '_' . $file->getClientOriginalName();
@@ -116,12 +160,11 @@ class CareerApplicationController extends Controller
                 $file->move($destination, $filename);
                 $filePath = 'storage/career_applications/' . $filename;
 
-                // Delete old resume file
+                // Delete old resume file if it exists
                 if ($careerApplication->file_path && file_exists(public_path($careerApplication->file_path))) {
                     unlink(public_path($careerApplication->file_path));
                 }
 
-                // Update file path in DB
                 $careerApplication->update(['file_path' => $filePath]);
             }
 
@@ -132,8 +175,9 @@ class CareerApplicationController extends Controller
         } catch (\Exception $e) {
             Log::error('Error updating career application', [
                 'message' => $e->getMessage(),
-                'line' => $e->getLine(),
+                'line'    => $e->getLine(),
             ]);
+
             return back()->with('error', 'Something went wrong while updating.')->withInput();
         }
     }
@@ -154,7 +198,15 @@ class CareerApplicationController extends Controller
     {
         $application = CareerApplication::findOrFail($id);
 
-        // Delete resume file
+        // ✅ Restore vacancy (+1)
+        if ($application->career_id) {
+            $career = Careers::find($application->career_id);
+            if ($career) {
+                $career->increment('vacancy', 1);
+            }
+        }
+
+        // ✅ Delete resume file if exists
         if ($application->file_path && file_exists(public_path($application->file_path))) {
             unlink(public_path($application->file_path));
         }

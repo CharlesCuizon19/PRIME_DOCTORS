@@ -72,7 +72,6 @@ class PageController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        // Add computed monthsAgo (for display like before)
         foreach ($careers as $career) {
             $career->monthsAgo = Carbon::parse($career->created_at)->diffInMonths(Carbon::now());
         }
