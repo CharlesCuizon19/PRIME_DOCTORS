@@ -62,7 +62,7 @@
                                 Company Profile
                             </a>
                             <a href="{{ route('BOD') }}"
-                                class="block px-4 py-2 text-gray-700 rounded-b-lg hover:bg-gray-100">
+                                class="block px-4 py-2 rounded-t-lg {{ Route::is('BOD') ? 'font-bold text-blue-700' : 'font-normal text-gray-700' }} hover:bg-gray-100">
                                 Board of Directors
                             </a>
                         </div>
@@ -225,7 +225,7 @@
                                 Company Profile
                             </a>
                             <a href="{{ route('BOD') }}"
-                                class="block px-4 py-2 text-gray-700 rounded-b-lg hover:bg-gray-100">
+                                class="block px-4 py-2 rounded-t-lg {{ Route::is('BOD') ? 'font-bold text-blue-700' : 'font-normal text-gray-700' }} hover:bg-gray-100">
                                 Board of Directors
                             </a>
                         </div>
