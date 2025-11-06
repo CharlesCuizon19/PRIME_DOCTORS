@@ -220,4 +220,9 @@ class PageController extends Controller
     {
         return view('pages.contact-us');
     }
+
+    public function BOD()
+    {
+        return view('pages.board-of-directors');
+    }
 }

@@ -4,7 +4,7 @@
             <!-- Section Titles -->
             <div class="flex items-center justify-center lg:justify-start lg:items-start" data-aos="zoom-in"
                 data-aos-duration="1000">
-                <span class="px-4 py-1 text-sm font-semibold text-blue-700 bg-white rounded-full w-fit h-fit">
+                <span class="px-4 py-1 text-lg font-semibold text-blue-700 bg-white rounded-full w-fit h-fit">
                     Our Doctors
                 </span>
             </div>
@@ -34,23 +34,22 @@
                 <div class="swiper doctors-swiper" data-aos="zoom-in" data-aos-duration="1000">
                     <div class="swiper-wrapper">
                         @foreach ($doctors as $doctor)
-                        @php
-                        $primarySpecialization = $doctor->specializations->firstWhere('pivot.type', 'Primary');
-                        @endphp
-                        <div class="swiper-slide">
-                            <a href="{{ route('find-a-doctor.doctor-details', ['id' => $doctor->id]) }}"
-                                class="flex flex-col justify-end w-full transition duration-300 bg-white border rounded-lg shadow-md hover:border-blue-700 bg-opacity-80">
-                                <img src="{{ asset($doctor->image->file->image_path ?? 'assets/doctor-thumbnail.png') }}"
-                                    alt="{{ $doctor->name }}"
-                                    class="object-cover rounded-md">
-                                <div class="p-4">
-                                    <h3 class="font-semibold text-blue-700">{{ $doctor->name }}</h3>
-                                    <p class="text-sm text-[#edb42f]">
-                                        {{ $primarySpecialization?->specialization_name ?? 'No Primary Specialization' }}
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
+                            @php
+                                $primarySpecialization = $doctor->specializations->firstWhere('pivot.type', 'Primary');
+                            @endphp
+                            <div class="swiper-slide">
+                                <a href="{{ route('find-a-doctor.doctor-details', ['id' => $doctor->id]) }}"
+                                    class="flex flex-col justify-end w-full transition duration-300 bg-white border rounded-lg shadow-md hover:border-blue-700 bg-opacity-80">
+                                    <img src="{{ asset($doctor->image->file->image_path ?? 'assets/doctor-thumbnail.png') }}"
+                                        alt="{{ $doctor->name }}" class="object-cover rounded-md">
+                                    <div class="p-4">
+                                        <h3 class="font-semibold text-blue-700">{{ $doctor->name }}</h3>
+                                        <p class="text-lg text-[#edb42f]">
+                                            {{ $primarySpecialization?->specialization_name ?? 'No Primary Specialization' }}
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
                         @endforeach
                     </div>
                 </div>

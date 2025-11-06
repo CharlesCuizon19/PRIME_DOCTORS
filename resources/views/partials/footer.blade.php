@@ -9,11 +9,11 @@
                     <img src="{{ asset('assets/logo.png') }}" alt="Logo" class="mb-4">
                     <h3 class="text-4xl font-semibold text-[#0035c6] pattaya-regular">Emergency Contact Information
                     </h3>
-                    <p class="mt-2 text-sm text-black">Emergency Hotline:</p>
+                    <p class="mt-2 text-lg text-black">Emergency Hotline:</p>
                     <p class="text-4xl font-bold text-[#0035c6]">0917 32PRIME</p>
-                    <p class="mt-2 text-sm text-black">Ambulance Service:</p>
+                    <p class="mt-2 text-lg text-black">Ambulance Service:</p>
                     <p class="text-4xl font-bold text-[#0035c6]">0917 32PRIME</p>
-                    <p class="mt-2 text-sm text-black">Email for Inquiries:</p>
+                    <p class="mt-2 text-lg text-black">Email for Inquiries:</p>
                     <a href="mailto:dummyhospital@gmail.com"
                         class="font-semibold text-[#0035c6]">primedoctorsmedicalcenter@gmail.com</a>
                 </div>
@@ -21,7 +21,7 @@
                 <!-- Quick Links -->
                 <div class="grid grid-cols-1 gap-3 h-fit">
                     <h3 class="text-4xl font-semibold text-[#0035c6] pattaya-regular">Quick Links</h3>
-                    <ul class="grid grid-cols-1 gap-4 mt-3 text-sm text-black">
+                    <ul class="grid grid-cols-1 gap-4 mt-3 text-lg text-black">
                         <li><a href="{{ route('home') }}" class="hover:text-blue-600">Home</a></li>
                         <li><a href="{{ route('about-us') }}" class="hover:text-blue-600">About Us</a></li>
                         <li><a href="{{ route('services') }}" class="hover:text-blue-600">Services</a></li>
@@ -36,7 +36,7 @@
                 <div class="grid grid-cols-1">
                     <div class="grid grid-cols-1 gap-3 h-fit">
                         <h3 class="text-4xl font-semibold text-[#0035c6] pattaya-regular">Patient Support</h3>
-                        <ul class="mt-2 space-y-2 text-sm text-black">
+                        <ul class="mt-2 space-y-2 text-lg text-black">
                             <li><a href="#" class="hover:text-blue-600">Patient Rights & Responsibilities</a></li>
                             <li><a href="#" class="hover:text-blue-600">Billing & Insurance</a></li>
                             <li><a href="#" class="hover:text-blue-600">Preparing for Your Visit</a></li>
@@ -88,7 +88,7 @@
                         <h3 class="text-4xl font-semibold text-[#0035c6] pattaya-regular">Hospital Location and
                             Directions
                         </h3>
-                        <p class="mt-2 text-sm text-black">Address: <span class="font-bold">Antipolo del Sur, Lipa City,
+                        <p class="mt-2 text-lg text-black">Address: <span class="font-bold">Antipolo del Sur, Lipa City,
                                 Philippines</span></p>
                         <div class="mt-4">
                             <iframe
@@ -102,7 +102,8 @@
                             Newsletter
                         </div>
 
-                        <form action="{{ route('newsletter.store') }}" method="POST" class="flex items-center w-full max-w-md px-1 py-2 bg-gray-100 rounded-full shadow">
+                        <form action="{{ route('newsletter.store') }}" method="POST"
+                            class="flex items-center w-full max-w-md px-1 py-2 bg-gray-100 rounded-full shadow">
                             @csrf
 
                             <!-- Email Input -->
@@ -117,7 +118,8 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-12 text-white">
                                     <g fill="none" stroke="currentColor" stroke-width="1">
                                         <circle cx="12" cy="12" r="10" />
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h8m0 0l-3-3m3 3l-3 3" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M8 12h8m0 0l-3-3m3 3l-3 3" />
                                     </g>
                                 </svg>
                             </button>
@@ -125,7 +127,7 @@
 
                         <!-- Validation Errors -->
                         @error('email')
-                        <p class="mt-2 text-red-600 font-medium">{{ $message }}</p>
+                            <p class="mt-2 text-red-600 font-medium">{{ $message }}</p>
                         @enderror
                     </div>
 
@@ -135,7 +137,7 @@
 
             <!-- Bottom -->
             <div
-                class="flex flex-col items-center justify-between pt-4 mt-8 text-sm text-black border-t border-gray-200 md:flex-row">
+                class="flex flex-col items-center justify-between pt-4 mt-8 text-lg text-black border-t border-gray-200 md:flex-row">
                 <p class="font-bold">© 2025 Dummy Hospital. <span class="font-normal">Designed & Developed by</span>
                     <a href="https://rwebsolutions.com.ph/" class="font-semibold underline text-[#edb42f]">R
                         Web
@@ -157,14 +159,14 @@
 <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
 <!-- SweetAlert Script -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@if(session('success'))
-<script>
-    Swal.fire({
-        icon: 'success',
-        title: 'Subscribed!',
-        text: "{{ session('success') }}",
-        timer: 2500,
-        showConfirmButton: false
-    });
-</script>
+@if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Subscribed!',
+            text: "{{ session('success') }}",
+            timer: 2500,
+            showConfirmButton: false
+        });
+    </script>
 @endif

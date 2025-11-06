@@ -3,7 +3,7 @@
         <div class="grid lg:grid-cols-2">
             <div class="grid items-center justify-center grid-cols-1 gap-10 text-center lg:text-start ">
                 <div class="w-full" data-aos="zoom-in" data-aos-duration="1000">
-                    <span class="px-4 py-1 text-sm font-semibold text-blue-700 bg-gray-100 rounded-full w-fit h-fit">
+                    <span class="px-4 py-1 text-lg font-semibold text-blue-700 bg-gray-100 rounded-full w-fit h-fit">
                         About Us
                     </span>
                 </div>

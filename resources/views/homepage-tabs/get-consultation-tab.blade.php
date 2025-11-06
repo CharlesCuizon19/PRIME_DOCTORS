@@ -35,8 +35,8 @@
 
                 {{-- Contact Number --}}
                 <div class="flex flex-col w-full md:w-auto">
-                    <input type="text" name="contact_num" placeholder="Your Contact Number*" required
-                        maxlength="11" inputmode="numeric" pattern="[0-9]*"
+                    <input type="text" name="contact_num" placeholder="Your Contact Number*" required maxlength="11"
+                        inputmode="numeric" pattern="[0-9]*"
                         oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11);"
                         class="px-10 py-4 rounded-full bg-[#f7e0ab] placeholder-[#0035c6]
                                placeholder:opacity-50 focus:outline-none focus:ring-2 focus:ring-[#edb42f]">
@@ -50,8 +50,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-10 text-[#0035c6]">
                         <g fill="none" stroke="currentColor" stroke-width="1.5">
                             <circle cx="12" cy="12" r="10" />
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M8 12h8m0 0l-3-3m3 3l-3 3" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h8m0 0l-3-3m3 3l-3 3" />
                         </g>
                     </svg>
                 </button>
@@ -62,14 +61,13 @@
 
 {{-- MOBILE FORM --}}
 <div class="flex lg:py-20 lg:hidden" data-aos="zoom-in" data-aos-duration="1000">
-    <div class="bg-no-repeat bg-cover bg-[#edb42f]"
-        style="background-image: url({{ asset('assets/rectangle2.png') }})">
+    <div class="bg-no-repeat bg-cover bg-[#edb42f]" style="background-image: url({{ asset('assets/rectangle2.png') }})">
         <div class="flex flex-col gap-8 px-3 py-10">
             <div class="text-2xl text-white pattaya-regular">
                 Get Consultation
             </div>
             <div>
-                <div class="text-sm font-light text-white w-fit">
+                <div class="text-lg font-light text-white w-fit">
                     It’s quick and easy—submit your details, and we’ll get back to you shortly.
                 </div>
             </div>
@@ -84,8 +82,8 @@
                 <input type="email" name="email" placeholder="Your Email*" required
                     class="px-10 py-4 rounded-full bg-[#f7e0ab] placeholder-white
                            focus:outline-none focus:ring-2 focus:ring-[#edb42f]">
-                <input type="text" name="contact_num" placeholder="Your Contact Number*" required
-                    maxlength="11" inputmode="numeric" pattern="[0-9]*"
+                <input type="text" name="contact_num" placeholder="Your Contact Number*" required maxlength="11"
+                    inputmode="numeric" pattern="[0-9]*"
                     oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11);"
                     class="px-10 py-4 rounded-full bg-[#f7e0ab] placeholder-white
                            focus:outline-none focus:ring-2 focus:ring-[#edb42f]">
@@ -93,12 +91,10 @@
                     class="flex items-center gap-3 transition duration-300 bg-white rounded-full w-fit py-auto
                            hover:scale-105 hover:shadow-lg">
                     <span class="text-base font-semibold ml-7 text-[#edb42f]">SUBMIT CONSULTANCY</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                        class="h-12 text-[#edb42f]">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-12 text-[#edb42f]">
                         <g fill="none" stroke="currentColor" stroke-width="1">
                             <circle cx="12" cy="12" r="10" />
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M8 12h8m0 0l-3-3m3 3l-3 3" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h8m0 0l-3-3m3 3l-3 3" />
                         </g>
                     </svg>
                 </button>
@@ -120,7 +116,8 @@
 
                 // Remove old errors
                 form.querySelectorAll(".text-red-600").forEach(el => el.remove());
-                form.querySelectorAll("input").forEach(el => el.classList.remove("ring-2", "ring-red-500"));
+                form.querySelectorAll("input").forEach(el => el.classList.remove("ring-2",
+                    "ring-red-500"));
 
                 const formData = new FormData(form);
 
@@ -128,7 +125,8 @@
                     const response = await fetch(form.action, {
                         method: "POST",
                         headers: {
-                            "X-CSRF-TOKEN": form.querySelector('input[name="_token"]').value,
+                            "X-CSRF-TOKEN": form.querySelector('input[name="_token"]')
+                                .value,
                             "Accept": "application/json"
                         },
                         body: formData
@@ -143,7 +141,7 @@
                             if (input) {
                                 input.classList.add("ring-2", "ring-red-500");
                                 const errorMsg = document.createElement("span");
-                                errorMsg.className = "text-red-600 text-sm mt-2";
+                                errorMsg.className = "text-red-600 text-lg mt-2";
                                 errorMsg.textContent = messages[0];
                                 input.insertAdjacentElement("afterend", errorMsg);
                             }

@@ -8,7 +8,8 @@
     @vite('resources/css/app.css') <!-- Laravel Vite + Tailwind -->
 </head>
 
-<body class="h-screen w-screen bg-gradient-to-br from-[#d9e6ff] via-[#f4f7fb] to-[#edf2fa] flex items-center justify-center">
+<body
+    class="h-screen w-screen bg-gradient-to-br from-[#d9e6ff] via-[#f4f7fb] to-[#edf2fa] flex items-center justify-center">
 
     <div class="grid grid-cols-1 md:grid-cols-2 w-full h-full">
 
@@ -18,13 +19,14 @@
             <div class="absolute w-[500px] h-[500px] bg-[#EDB42F]/20 rounded-full blur-3xl"></div>
 
             <!-- Logo + Text -->
-            <div class="flex flex-col items-center text-center relative z-10 transform hover:scale-105 transition-transform duration-500">
+            <div
+                class="flex flex-col items-center text-center relative z-10 transform hover:scale-105 transition-transform duration-500">
                 <img src="{{ asset('assets/logo.png') }}" alt="Prime Doctors Medical Center Logo"
                     class="h-28 mb-6 drop-shadow-[0_10px_20px_rgba(0,0,0,0.3)]">
 
                 <div>
                     <h1 class="text-4xl font-extrabold text-[#EDB42F] tracking-wide drop-shadow-lg">PRIME DOCTORS</h1>
-                    <p class="text-sm text-white tracking-[0.3em] drop-shadow">MEDICAL CENTER</p>
+                    <p class="text-lg text-white tracking-[0.3em] drop-shadow">MEDICAL CENTER</p>
                 </div>
             </div>
         </div>
@@ -41,17 +43,18 @@
                 </h2>
 
                 <!-- Success Message -->
-                @if(session('success'))
-                <div class="bg-green-100 text-green-700 p-2 rounded mb-4 text-center text-sm font-medium shadow-inner">
-                    {{ session('success') }}
-                </div>
+                @if (session('success'))
+                    <div
+                        class="bg-green-100 text-green-700 p-2 rounded mb-4 text-center text-lg font-medium shadow-inner">
+                        {{ session('success') }}
+                    </div>
                 @endif
 
                 <!-- Error Message -->
-                @if($errors->any())
-                <div class="bg-red-100 text-red-700 p-2 rounded mb-4 text-center text-sm font-medium shadow-inner">
-                    {{ $errors->first() }}
-                </div>
+                @if ($errors->any())
+                    <div class="bg-red-100 text-red-700 p-2 rounded mb-4 text-center text-lg font-medium shadow-inner">
+                        {{ $errors->first() }}
+                    </div>
                 @endif
 
                 <!-- Login Form -->
@@ -81,7 +84,7 @@
                     </button>
 
                     <!-- Footer Note -->
-                    <p class="text-center text-sm text-gray-500 mt-4">
+                    <p class="text-center text-lg text-gray-500 mt-4">
                         © {{ date('Y') }} Prime Doctors Medical Center. All Rights Reserved.
                     </p>
                 </form>

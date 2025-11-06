@@ -1,6 +1,6 @@
 <header class="relative z-50 shadow drop-shadow-md">
     <!-- Top Bar -->
-    {{-- <div class="py-1 text-sm text-white bg-blue-600">
+    {{-- <div class="py-1 text-lg text-white bg-blue-600">
             <div
                 class="container flex flex-col items-center justify-between px-4 mx-auto space-y-2 sm:flex-row sm:space-y-0">
                 <div class="flex flex-col items-center space-y-1 sm:flex-row sm:space-x-6 sm:space-y-0">
@@ -39,9 +39,34 @@
                     <a href="{{ route('home') }}"
                         class="{{ Route::is('home') ? 'bg-gray-200 rounded-full text-blue-700 font-semibold border-2 border-[#edb42f]' : ' text-white' }} px-3 py-1 hover:text-gray-500 hover:bg-white rounded-full transition duration-300">
                         Home </a>
-                    <a href="{{ route('about-us') }}"
-                        class="{{ Route::is('about-us') ? 'bg-gray-200 rounded-full text-blue-700 font-semibold border-2 border-[#edb42f]' : ' text-white' }} px-3 py-1 hover:text-gray-500 hover:bg-white rounded-full transition duration-300">About
-                        Us</a>
+                    <div x-data="{ open: false }" class="relative">
+                        <!-- About Us Button -->
+                        <button @click="open = !open"
+                            class="flex items-center gap-1 px-3 py-1 transition duration-300 rounded-full
+        {{ Route::is('about-us') || Route::is('company-profile') || Route::is('BOD')
+            ? 'bg-gray-200 text-blue-700 font-semibold border-2 border-[#edb42f]'
+            : 'text-white hover:text-gray-500 hover:bg-white' }}">
+                            About Us
+                            <!-- Dropdown Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor" class="w-4 h-4 mt-0.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown Menu -->
+                        <div x-show="open" @click.away="open = false" x-transition
+                            class="absolute left-0 z-50 w-48 mt-2 bg-white rounded-lg shadow-lg">
+                            <a href="{{ route('about-us') }}"
+                                class="block px-4 py-2 rounded-t-lg {{ Route::is('about-us') ? 'font-bold text-blue-700' : 'font-normal text-gray-700' }} hover:bg-gray-100">
+                                Company Profile
+                            </a>
+                            <a href="{{ route('BOD') }}"
+                                class="block px-4 py-2 rounded-t-lg {{ Route::is('BOD') ? 'font-bold text-blue-700' : 'font-normal text-gray-700' }} hover:bg-gray-100">
+                                Board of Directors
+                            </a>
+                        </div>
+                    </div>
                     <a href="{{ route('services') }}"
                         class="{{ Route::is('service.*') || Route::is('services') ? 'bg-gray-200 rounded-full text-blue-700 font-semibold border-2 border-[#edb42f]' : ' text-white' }} px-3 py-1 hover:text-gray-500 hover:bg-white rounded-full transition duration-300">Services</a>
                     <a href="{{ route('careers') }}"
@@ -102,15 +127,15 @@
                     <div class="flex items-center justify-center text-gray-800 gap-14">
                         <div class="flex items-center space-x-2">
                             <img src="{{ asset('assets/icon1.png') }}" class="w-6 h-6">
-                            <span class="text-sm font-bold lg:text-sm">24/7 Emergency Services</span>
+                            <span class="text-lg font-bold lg:text-lg">24/7 Emergency Services</span>
                         </div>
                         <div class="flex items-center space-x-2">
                             <img src="{{ asset('assets/icon2.png') }}" class="w-6 h-6">
-                            <span class="text-sm font-bold lg:text-sm">Specialized Doctors</span>
+                            <span class="text-lg font-bold lg:text-lg">Specialized Doctors</span>
                         </div>
                         <div class="flex items-center space-x-2">
                             <img src="{{ asset('assets/icon3.png') }}" class="w-6 h-6">
-                            <span class="text-sm font-bold lg:text-sm">Patient-Centric Care</span>
+                            <span class="text-lg font-bold lg:text-lg">Patient-Centric Care</span>
                         </div>
                     </div>
 
@@ -133,15 +158,15 @@
                 <div class="flex items-center justify-center pr-[20rem] w-full gap-14 text-gray-800">
                     <div class="flex items-center space-x-2">
                         <img src="{{ asset('assets/icon1.png') }}" class="w-6 h-6">
-                        <span class="text-sm font-bold lg:text-sm">24/7 Emergency Services</span>
+                        <span class="text-lg font-bold lg:text-lg">24/7 Emergency Services</span>
                     </div>
                     <div class="flex items-center space-x-2">
                         <img src="{{ asset('assets/icon2.png') }}" class="w-6 h-6">
-                        <span class="text-sm font-bold lg:text-sm">Specialized Doctors</span>
+                        <span class="text-lg font-bold lg:text-lg">Specialized Doctors</span>
                     </div>
                     <div class="flex items-center space-x-2">
                         <img src="{{ asset('assets/icon3.png') }}" class="w-6 h-6">
-                        <span class="text-sm font-bold lg:text-sm">Patient-Centric Care</span>
+                        <span class="text-lg font-bold lg:text-lg">Patient-Centric Care</span>
                     </div>
                 </div>
 
@@ -177,9 +202,34 @@
                     <a href="{{ route('home') }}"
                         class="{{ Route::is('home') ? 'bg-gray-200 rounded-full text-blue-700 font-semibold border-2 border-[#edb42f]' : ' text-white' }} px-3 py-1 hover:text-gray-500 hover:bg-white rounded-full transition duration-300">
                         Home </a>
-                    <a href="{{ route('about-us') }}"
-                        class="{{ Route::is('about-us') ? 'bg-gray-200 rounded-full text-blue-700 font-semibold border-2 border-[#edb42f]' : ' text-white' }}  px-3 py-1 hover:text-gray-500 hover:bg-white rounded-full transition duration-300">
-                        About Us </a>
+                    <div x-data="{ open: false }" class="relative">
+                        <!-- About Us Button -->
+                        <button @click="open = !open"
+                            class="flex items-center gap-1 px-3 py-1 transition duration-300 rounded-full
+        {{ Route::is('about-us') || Route::is('company-profile') || Route::is('BOD')
+            ? 'bg-gray-200 text-blue-700 font-semibold border-2 border-[#edb42f]'
+            : 'text-white hover:text-gray-500 hover:bg-white' }}">
+                            About Us
+                            <!-- Dropdown Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="2" stroke="currentColor" class="w-4 h-4 mt-0.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown Menu -->
+                        <div x-show="open" @click.away="open = false" x-transition
+                            class="absolute left-0 z-50 w-48 mt-2 bg-white rounded-lg shadow-lg">
+                            <a href="{{ route('about-us') }}"
+                                class="block px-4 py-2 rounded-t-lg {{ Route::is('about-us') ? 'font-bold text-blue-700' : 'font-normal text-gray-700' }} hover:bg-gray-100">
+                                Company Profile
+                            </a>
+                            <a href="{{ route('BOD') }}"
+                                class="block px-4 py-2 rounded-t-lg {{ Route::is('BOD') ? 'font-bold text-blue-700' : 'font-normal text-gray-700' }} hover:bg-gray-100">
+                                Board of Directors
+                            </a>
+                        </div>
+                    </div>
                     <a href="{{ route('services') }}"
                         class="{{ Route::is('service.*') || Route::is('services') ? 'bg-gray-200 rounded-full text-blue-700 font-semibold border-2 border-[#edb42f]' : ' text-white' }}  px-3 py-1 hover:text-gray-500 hover:bg-white rounded-full transition duration-300">
                         Services </a>
@@ -218,15 +268,15 @@
             <div class="flex items-center justify-center pr-[20rem] w-full gap-14 text-gray-800">
                 <div class="flex items-center space-x-2">
                     <img src="{{ asset('assets/icon1.png') }}" class="w-6 h-6">
-                    <span class="text-sm font-bold lg:text-sm">24/7 Emergency Services</span>
+                    <span class="text-lg font-bold lg:text-lg">24/7 Emergency Services</span>
                 </div>
                 <div class="flex items-center space-x-2">
                     <img src="{{ asset('assets/icon2.png') }}" class="w-6 h-6">
-                    <span class="text-sm font-bold lg:text-sm">Specialized Doctors</span>
+                    <span class="text-lg font-bold lg:text-lg">Specialized Doctors</span>
                 </div>
                 <div class="flex items-center space-x-2">
                     <img src="{{ asset('assets/icon3.png') }}" class="w-6 h-6">
-                    <span class="text-sm font-bold lg:text-sm">Patient-Centric Care</span>
+                    <span class="text-lg font-bold lg:text-lg">Patient-Centric Care</span>
                 </div>
             </div>
 
@@ -273,15 +323,15 @@
                 <div class="flex items-center justify-center gap-6 text-gray-800">
                     <div class="flex items-center space-x-2">
                         <img src="{{ asset('assets/icon1.png') }}" class="w-6 h-6">
-                        <span class="text-sm font-bold lg:text-xl">24/7 Emergency Services</span>
+                        <span class="text-lg font-bold lg:text-xl">24/7 Emergency Services</span>
                     </div>
                     <div class="flex items-center space-x-2">
                         <img src="{{ asset('assets/icon2.png') }}" class="w-6 h-6">
-                        <span class="text-sm font-bold lg:text-xl">Specialized Doctors</span>
+                        <span class="text-lg font-bold lg:text-xl">Specialized Doctors</span>
                     </div>
                     <div class="flex items-center space-x-2">
                         <img src="{{ asset('assets/icon3.png') }}" class="w-6 h-6">
-                        <span class="text-sm font-bold lg:text-xl">Patient-Centric Care</span>
+                        <span class="text-lg font-bold lg:text-xl">Patient-Centric Care</span>
                     </div>
                 </div>
 
