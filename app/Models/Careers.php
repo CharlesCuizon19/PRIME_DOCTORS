@@ -41,4 +41,9 @@ class Careers extends Model
     {
         return Carbon::parse($this->created_at)->diffInMonths(Carbon::now());
     }
+
+    public function applications()
+    {
+        return $this->hasMany(CareerApplication::class, 'career_id');
+    }
 }

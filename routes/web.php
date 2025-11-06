@@ -10,6 +10,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BannersController;
 use App\Http\Controllers\BenefitsController;
 use App\Http\Controllers\BlogsController;
+use App\Http\Controllers\CareerApplicationController;
 use App\Http\Controllers\ConsultationsController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\DoctorsController;
@@ -82,6 +83,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('blogs', BlogsController::class);
     Route::resource('appointments', AppointmentController::class);
     Route::resource('consultations', ConsultationsController::class);
+    Route::resource('career_applications', CareerApplicationController::class);
 
 
     Route::get('newsletter-export', [NewslettersController::class, 'export'])->name('newsletter.export');

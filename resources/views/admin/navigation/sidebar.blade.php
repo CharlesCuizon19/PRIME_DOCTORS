@@ -190,6 +190,15 @@
                         Consultations
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{ route('admin.career_applications.index') }}"
+                        class="block py-2 pl-4 pr-6
+                        {{ Route::is('admin.career_applications.*') ? 'bg-white text-black' : 'text-white' }}
+                        hover:bg-gray-200 rounded-xl hover:text-black">
+                        Applicants
+                    </a>
+                </li>
             </div>
         </ul>
     </nav>
