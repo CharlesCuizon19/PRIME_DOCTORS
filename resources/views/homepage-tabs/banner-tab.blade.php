@@ -12,7 +12,7 @@
                         : asset('assets/background.png');
                 @endphp
 
-                <div class="swiper-slide relative">
+                <div class="relative swiper-slide">
                     <!-- Background Image -->
                     <img src="{{ $imagePath }}" alt="{{ $banner->image?->alt_text ?? $banner->title }}"
                         class="h-[12rem] w-full object-cover lg:h-auto rounded-xl">
@@ -28,7 +28,7 @@
                         @endif
 
                         <!-- Title -->
-                        <div class="text-2xl font-semibold lg:text-[6rem] lg:w-1/2 h-auto leading-tight"
+                        <div class="text-5xl w-1/2 font-semibold lg:text-[6rem] lg:w-1/2 h-auto leading-tight"
                             data-aos="zoom-in" data-aos-duration="1000">
                             <span class="text-[#edb42f] pattaya-regular">{{ $first }}</span>
                             @if ($middle)
